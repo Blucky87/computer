@@ -1,6 +1,9 @@
 base-devel
 makepkg
 go
+xsel
+tmux
+libnotify
 ranger
 rofi
 alacritty
