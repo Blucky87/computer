@@ -1,3 +1,6 @@
+base-devel
+makepkg
+go
 ranger
 rofi
 alacritty
