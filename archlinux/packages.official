@@ -8,7 +8,8 @@ ranger
 rofi
 alacritty
 vim
-i3
+i3-wm
+picom
 dunst
 polybar
 xorg
