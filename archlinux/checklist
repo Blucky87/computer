@@ -16,3 +16,6 @@ https://aur.archlinux.org/packages/vscodium-bin
 Troubleshooting:
 Can't connect keyboard to usevia.app
 check [ chrome://device-log ] and then sudo chmod a+rw /dev/hidraw1
+
+where are desktop items?
+/usr/share/applications/ || ~/.local/share/applications
