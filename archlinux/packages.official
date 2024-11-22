@@ -1,6 +1,6 @@
 base-devel
-makepkg
 go
+arandr
 xsel
 tmux
 libnotify

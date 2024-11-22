@@ -1,0 +1,17 @@
+sign into firefox
+
+plugins:
+https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/
+https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/
+https://addons.mozilla.org/en-US/firefox/addon/dracula-dark-colorscheme/
+
+
+Arch User Repository:
+https://aur.archlinux.org/packages/spotify
+https://aur.archlinux.org/packages/vscodium-bin
+
+
+
+Troubleshooting:
+Can't connect keyboard to usevia.app
+check [ chrome://device-log ] and then sudo chmod a+rw /dev/hidraw1

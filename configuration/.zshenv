@@ -1,0 +1,3 @@
+EDITOR=/usr/bin/vim
+
+RANGER_LOAD_DEFAULT_RC=FALSE

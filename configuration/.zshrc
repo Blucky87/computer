@@ -10,3 +10,5 @@ source $HOME/.zkbd/$TERM &&
 	[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char 
 	[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
 	[[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
+
+[[ $(command -v lsd) ]] && alias ls=lsd || echo "[ lsd ] command not found"
