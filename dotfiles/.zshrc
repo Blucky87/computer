@@ -5,7 +5,7 @@ SAVEHIST=10000
 setopt beep notify
 # End of lines configured by zsh-newuser-install
 
-source $HOME/.zkbd/$TERM &&
+[[ "$SHELL" == "alacritty" ]] && source $HOME/.zkbd/alacritty &&
 	[[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char 
 	[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char 
 	[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
