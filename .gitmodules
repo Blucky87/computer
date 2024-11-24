@@ -1,0 +1,4 @@
+[submodule "qmk_userspace"]
+	path = qmk_userspace
+	url = git@github.com:Blucky87/qmk_userspace.git
+	branch = mycomputer
