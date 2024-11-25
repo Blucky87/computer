@@ -1,2 +1,5 @@
-stow --dir configuration --target $HOME
+stow --dir dotfiles --target ~ .
 stow --dir desktop --target ~/.local/share .
+
+stow --dir dotfiles --target ~ -D .
+stow --dir desktop --target ~/.local/share -D .
