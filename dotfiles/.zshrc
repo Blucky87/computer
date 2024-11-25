@@ -5,11 +5,14 @@ SAVEHIST=10000
 setopt beep notify
 # End of lines configured by zsh-newuser-install
 
-[[ "$SHELL" == "alacritty" ]] && source $HOME/.zkbd/alacritty &&
+ source $HOME/.zkbd/alacritty &&
 	[[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char 
 	[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char 
 	[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
 	[[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
+	[[ -n ${key[Cleft]} ]] && bindkey "${key[Cleft]}" backward-word
+	[[ -n ${key[Cright]} ]] && bindkey "${key[Cright]}" forward-word
+
 
 [[ $(command -v lsd) ]] && alias ls=lsd || echo "[ lsd ] command not found"
 

@@ -18,4 +18,8 @@ Can't connect keyboard to usevia.app
 check [ chrome://device-log ] and then sudo chmod a+rw /dev/hidraw1
 
 where are desktop items?
-/usr/share/applications/ || ~/.local/share/applications
+/usr/share/applications/ or ~/.local/share/applications
+
+How to see key commands
+terminal: od -c
+xorg: xev
