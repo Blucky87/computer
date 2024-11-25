@@ -1,1 +1,2 @@
 stow --dir configuration --target $HOME
+stow --dir desktop --target ~/.local/share .
