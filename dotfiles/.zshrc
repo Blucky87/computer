@@ -14,3 +14,5 @@ setopt beep notify
 [[ $(command -v lsd) ]] && alias ls=lsd || echo "[ lsd ] command not found"
 
 alias v=vim
+
+PS1='%F{blue}%~ %(?.%F{green}.%F{red})%#%f '
