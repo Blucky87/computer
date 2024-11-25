@@ -12,6 +12,9 @@ setopt beep notify
 	[[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
 	[[ -n ${key[Cleft]} ]] && bindkey "${key[Cleft]}" backward-word
 	[[ -n ${key[Cright]} ]] && bindkey "${key[Cright]}" forward-word
+	[[ -n ${key[ShCleft]} ]] && bindkey "${key[ShCleft]}" backward-delete-word
+	[[ -n ${key[ShCright]} ]] && bindkey "${key[ShCright]}" forward-delete-word
+	[[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
 
 
 [[ $(command -v lsd) ]] && alias ls=lsd || echo "[ lsd ] command not found"
