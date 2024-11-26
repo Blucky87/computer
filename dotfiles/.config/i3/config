@@ -11,9 +11,9 @@
 
 exec --no-startup-id picom -b
 
-set $monitor_center HDMI-4 DP-3
-set $monitor_left DP-3
-set $monitor_top DP-4
+set $monitor_center HDMI-0 DP-0
+set $monitor_left DP-0
+set $monitor_top DP-2
 
 
 set $mod Mod4
