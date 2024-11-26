@@ -23,3 +23,7 @@ where are desktop items?
 How to see key commands
 terminal: od -c
 xorg: xev
+
+
+Where should i place my programs/scripts?
+~/.local/bin

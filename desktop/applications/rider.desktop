@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Rider
+GenericName=IDE
+Comment=Launches the Jetbrains Rider IDE
+Icon=utilities-terminal
+Terminal=false
+Exec=rider
+Categories=ConsoleOnly;System;FileTools;FileManager
+Keywords=ide;csharp;rider;jetbrains

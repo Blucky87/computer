@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Spotify
+GenericName=Music Player
+Comment=Launches the ranger file manager
+Icon=utilities-terminal
+Terminal=false
+Exec=spotify
+Categories=ConsoleOnly;System;FileTools;FileManager
+Keywords=Music;Stream;Spotify

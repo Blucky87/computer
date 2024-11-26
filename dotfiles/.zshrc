@@ -20,5 +20,32 @@ setopt beep notify
 [[ $(command -v lsd) ]] && alias ls=lsd || echo "[ lsd ] command not found"
 
 alias v=vim
+ 
 
 PS1='%F{blue}%~ %(?.%F{green}.%F{red})%#%f '
+
+
+
+function untargz() {
+  local target_file="${1}"
+  local target_destination="${2}"
+
+  [[ "${target_file}" == "" ]] && return
+  [[ "${target_destination}" == "" ]] && return
+
+  echo "Processing file: ${target_file} and placing it in ${target_destination}"
+
+  (set -x; tar -zxvf ${target_file} -C ${target_destination})
+}
+
+function targz(){
+  local target_directory="${1}"
+  local target_destination="${2}"
+
+  [[ "${target_directory}" == "" ]] && return
+  [[ "${target_destination}" == "" ]] && return
+
+  echo "Processing dirctory: ${target_directory} and putting it in file ${target_file}"
+
+  (set -x; tar -ztvf ${target_destination} ${target_directory})
+}

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Godot
+GenericName=Game Engine
+Comment=Launches the godot game engine
+Icon=utilities-terminal
+Terminal=false
+Exec=godot
+Categories=ConsoleOnly;System;FileTools;FileManager
+Keywords=Godot;Game;Dev
