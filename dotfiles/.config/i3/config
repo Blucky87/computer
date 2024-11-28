@@ -232,3 +232,10 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
 exec --no-startup-id $HOME/.config/polybar/launch.sh
+
+
+
+assign [class="Spotify*"] $ws10
+assign [class="*Discord*"] $ws10
+
+for_window [workspace=$ws10] layout tabbed
