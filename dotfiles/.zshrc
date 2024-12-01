@@ -42,10 +42,10 @@ function targz(){
   local target_directory="${1}"
   local target_destination="${2}"
 
-  [[ "${target_directory}" == "" ]] && return
+  [[ "${target_directory}" == "" ]] || [[ ! -d ${target_directory} ]] && return
   [[ "${target_destination}" == "" ]] && return
 
-  echo "Processing dirctory: ${target_directory} and putting it in file ${target_file}"
+  echo "Processing dirctory: ${target_directory} and putting it in file ${target_destination}"
 
   (set -x; tar -ztvf ${target_destination} ${target_directory})
 }
