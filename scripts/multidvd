@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Input DVD device
+DVD_DEVICE="/dev/cdrom"
+
+# Output folder
+OUTPUT_DIR="./episodes"
+mkdir -p "$OUTPUT_DIR"
+
+# Minimum duration in seconds (to skip ads/bonus/etc)
+MIN_DURATION=600  # 10 minutes
+
+# Get all valid title numbers (long enough)
+echo "Scanning DVD for valid episode titles..."
+TITLE_LIST=$(HandBrakeCLI -i "$DVD_DEVICE" -t 0 --min-duration "$MIN_DURATION" 2>&1 \
+  | grep '^+ title' \
+  | awk '{print $3}' \
+  | tr -d ':')
+
+echo "Found titles: $TITLE_LIST"
+
+# Counter for filename numbering
+EP_NUM=1
+
+for TITLE in $TITLE_LIST; do
+  EP_LABEL=$(printf "E%02d" "$EP_NUM")
+  OUTPUT_FILE="$OUTPUT_DIR/${EP_LABEL}.mkv"
+
+  echo "Ripping title $TITLE -> $OUTPUT_FILE"
+
+  iHandBrakeCLI -i "$DVD_DEVICE" \
+    --title "$TITLE" \
+    -o "$OUTPUT_FILE" \
+    --encoder nvenc_h264 \
+    --width 1920 --height 1080 \
+    --crop 0:0:0:0 --auto-anamorphic \
+    --all-audio --all-subtitles
+
+  ((EP_NUM++))
+done

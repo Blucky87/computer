@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=2048
-SAVEHIST=10000
+HISTSIZE=20480
+SAVEHIST=100000
 setopt beep notify
 # End of lines configured by zsh-newuser-install
 
@@ -24,7 +24,10 @@ alias v=vim
 
 PS1='%F{blue}%~ %(?.%F{green}.%F{red})%#%f '
 
-
+export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/init-nvm.sh
+nvm use 24
+export deckpass="Brian112"
 
 function untargz() {
   local target_file="${1}"

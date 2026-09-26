@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+FILE_RAW="${1}"
+FILE_TEMP="/tmp/temp_video.mp4"
+FILE_OUTPUT="$HOME/output.webm"
+echo "making gif of ${FILE_RAW}..."
+
+ffmpeg -i "${FILE_RAW}" -c:v libvpx-vp9 -crf 31 -b:v 0  -an "${FILE_OUTPUT}"

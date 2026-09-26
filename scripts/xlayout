@@ -1,0 +1,70 @@
+#!/bin/sh
+# xlayout [1080p|multi] [--no-bars]
+#
+# Apply a monitor layout. Safe to run live: i3 relocates workspaces when an
+# output disappears, and the polybar set is relaunched to match.
+#
+#   --no-bars   apply the layout only. Used by ~/.xinitrc at session start,
+#               where i3 starts polybar itself a moment later.
+
+mode=multi
+nobars=0
+for arg in "$@"; do
+    case "$arg" in
+        1080p|multi) mode="$arg" ;;
+        --no-bars)   nobars=1 ;;
+        *) echo "usage: xlayout [1080p|multi] [--no-bars]" >&2; exit 1 ;;
+    esac
+done
+
+connected_outputs() {
+    xrandr --query | awk '/ connected/ { print $1 }'
+}
+
+is_connected() {
+    xrandr --query | grep -q "^$1 connected"
+}
+
+# First connected output whose *preferred* (native) mode is 1920x1080 --
+# the real 1080p panel, not a bigger screen that also supports 1080p.
+find_1080p_output() {
+    xrandr --query | awk '
+        /^[^[:space:]]/ { out = ($2 == "connected") ? $1 : ""; next }
+        out != "" && $1 == "1920x1080" && /\+/ { print out; exit }
+    '
+}
+
+case "$mode" in
+1080p)
+    target=$(find_1080p_output)
+    if [ -n "$target" ]; then
+        set -- --output "$target" --primary --mode 1920x1080 --pos 0x0 --rotate normal
+    else
+        target=$(connected_outputs | head -n 1)
+        [ -n "$target" ] || { echo "xlayout: no connected outputs" >&2; exit 1; }
+        echo "xlayout: no native-1080p output; falling back to $target" >&2
+        set -- --output "$target" --primary --auto --pos 0x0 --rotate normal
+    fi
+    for out in $(connected_outputs); do
+        [ "$out" = "$target" ] || set -- "$@" --output "$out" --off
+    done
+    echo "Single-monitor layout on [ $target ]"
+    ;;
+multi)
+    # Everything back on: 1080p panel left, ultrawide primary to its right.
+    # No --rate, so each output uses its preferred refresh rate.
+    set --
+    is_connected DP-2   && set -- "$@" --output DP-2   --mode 1920x1080 --pos 0x0    --rotate normal
+    is_connected HDMI-0 && set -- "$@" --output HDMI-0 --primary --mode 3440x1440 --pos 1920x0 --rotate normal
+    [ $# -gt 0 ] || { echo "xlayout: no known outputs connected" >&2; exit 1; }
+    echo "Multi-monitor layout"
+    ;;
+esac
+
+xrandr "$@" || exit 1
+
+[ "$nobars" = 1 ] && exit 0
+
+X_LAYOUT="$mode"
+export X_LAYOUT
+exec "$HOME/.config/polybar/launch.sh"

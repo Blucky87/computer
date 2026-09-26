@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Application
-Name=Rider
-GenericName=IDE
-Comment=Launches the Jetbrains Rider IDE
+Name=GodotNet
+GenericName=Game Engine
+Comment=Launches the godot game engine
 Icon=utilities-terminal
 Terminal=false
-Exec=rider
+Exec=godotNet
 Categories=ConsoleOnly;System;FileTools;FileManager
-Keywords=ide;csharp;rider;jetbrains
+Keywords=Godot;Game;Dev

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Soul's Remnant
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/3451980
+Icon=steam_icon_3451980
+Terminal=false
+Type=Application
+Categories=Game;

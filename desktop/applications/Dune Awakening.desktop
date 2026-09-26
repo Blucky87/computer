@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Dune: Awakening
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/1172710
+Icon=steam_icon_1172710
+Terminal=false
+Type=Application
+Categories=Game;

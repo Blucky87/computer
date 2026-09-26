@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Apple Music
+StartupWMClass=apple_music
+Comment="Apple Music"
+GenericName=Music
+Exec=firefox --class apple_music -P apple_music --new-window "https://music.apple.com/us/new"
+Icon=firefox
+Type=Application
+Categories=Music
+Path=/usr/bin

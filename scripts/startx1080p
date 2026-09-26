@@ -1,0 +1,7 @@
+#!/bin/sh
+# Start an X session in which the 1080p panel is the only working monitor.
+# Uses its own ~/.xinitrc-1080p, so plain `startx` and ~/.xinitrc are untouched.
+# Extra args pass through to startx, e.g. `startx1080p -- vt2`.
+XINITRC="$HOME/.xinitrc-1080p"
+export XINITRC
+exec startx "$@"

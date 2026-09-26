@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Guild Wars 2®
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/1284210
+Icon=steam_icon_1284210
+Terminal=false
+Type=Application
+Categories=Game;

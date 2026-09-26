@@ -1,4 +1,4 @@
-v# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,emacs,vim,notepadpp,sublimetext,text,jetbrains+all
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,emacs,vim,notepadpp,sublimetext,text,jetbrains+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,emacs,vim,notepadpp,sublimetext,text,jetbrains+all
 
 ### Emacs ###
@@ -228,3 +228,47 @@ tags
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,emacs,vim,notepadpp,sublimetext,text,jetbrains+all
 
+
+### Local additions: secrets and machine-specific files ###
+# SSH / keys / credentials
+.ssh/
+id_rsa*
+id_ed25519*
+id_ecdsa*
+*.pem
+*.key
+*.p12
+*.pfx
+*.gpg
+*.kdbx
+.env
+.env.*
+.netrc
+.npmrc
+.pypirc
+.git-credentials
+.aws/
+.gnupg/
+credentials*
+secrets*
+
+# Backups
+*.bak
+*.bak.*
+*.orig
+*.rej
+*.swp
+
+# Generated launchers with hardcoded /home/<user> paths
+desktop/applications/lutris-*.sh
+
+# Tmux plugins (managed by tpm) and Python caches
+dotfiles/.config/tmux/plugins/
+__pycache__/
+*.pyc
+# Auto-generated desktop entries (wine, JetBrains Toolbox, Claude Code, sandboxed installs)
+desktop/applications/wine-extension-*.desktop
+desktop/applications/jetbrainsd.desktop
+desktop/applications/jetbrains-rider.desktop
+desktop/applications/claude-code-url-handler.desktop
+desktop/applications/sandbox-*.desktop
